@@ -7,10 +7,12 @@ import {
 import { BuildingStorefrontIcon } from "@heroicons/react/24/outline";
 import { KeyRound, User } from "lucide-react";
 import RoleSpecificFields from "../../components/RoleSpecificFields";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Home = () => {
+  const navigate = useNavigate()
   const [selectedPropertyType, setSelectedPropertyType] = useState("");
   const [selectedRole, setSelectedRole] = useState("");
   const [country, setCountry] = useState("");
@@ -51,6 +53,10 @@ const Home = () => {
       [field]: value,
     }));
   };
+
+  const handleNavigate = () => {
+      navigate(`/add-property?propertyType=${selectedPropertyType}&role=${selectedRole}`)
+  }
 
   
   return (
@@ -102,11 +108,11 @@ const Home = () => {
 
             <div
               className={`p-4 border-2 rounded-lg cursor-pointer transition-all flex items-center gap-4 ${
-                selectedPropertyType === "condo"
+                selectedPropertyType === "condominiums"
                   ? "border-blue-500 bg-blue-50"
                   : "border-gray-200 hover:border-gray-300"
               }`}
-              onClick={() => handlePropertyTypeSelect("condo")}
+              onClick={() => handlePropertyTypeSelect("condominiums")}
             >
               <BuildingOffice2Icon className="w-6 h-6 font-semibold" />
               <div>
@@ -216,13 +222,14 @@ const Home = () => {
         {/* Get Started Button */}
         <div className="flex items-center justify-end">
           <button
-         
+            onClick={handleNavigate}
             className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:cursor-not-allowed disabled:bg-gray-300"
             disabled={
               !selectedPropertyType ||
               !selectedRole ||
-              !formData.agreementWithRentyard ||
-              (selectedRole === "management" && (!country || !region))
+              !formData.agreementWithRentyard 
+              // ||
+              // (selectedRole === "management" && (!country || !region))
             }
           >
             Get started
