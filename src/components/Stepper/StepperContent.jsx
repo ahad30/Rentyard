@@ -183,11 +183,11 @@ handleRemoveAmenity
                 field="communityAmenities"
                 onAddClick={handleAddClick}
               />
-               {formData?.communityAmenities &&
-                  Object.keys(formData.communityAmenities.amenities).length > 0 && (
+               {formData?.communityAmenities?.amenities &&
+                  Object.keys(formData?.communityAmenities?.amenities)?.length > 0 && (
                     <div className=" border-gray-200 border-t-0 border-l border-b border-r p-3 font-bold">
                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-            {formData.communityAmenities.amenities.map((amenity ,index) => (
+            {formData?.communityAmenities?.amenities?.map((amenity ,index) => (
               <div 
                             key={amenity.id || index}
                             className="flex items-center justify-between gap-2 p-2 bg-gray-50 border border-gray-200 rounded-lg"

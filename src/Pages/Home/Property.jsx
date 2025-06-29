@@ -108,8 +108,6 @@ const Property = () => {
         },
       };
     });
-    
-    // Show success message
     toast.success("Amenity removed successfully");
   };
 
