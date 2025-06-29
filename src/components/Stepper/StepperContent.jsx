@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import FormField from "../FormFields/FormField";
 import PhotoUpload from "../PhotoUpload";
-// import { Accordion, AccordionTab } from 'primereact/accordion';
-import { ArrowDown, ChevronDown, Upload } from "lucide-react";
+import { ArrowDown, ChevronDown, Upload , X } from "lucide-react";
 import {
   Accordion,
   AccordionHeader,
@@ -26,10 +25,13 @@ const StepperContent = ({
   getTitle,
   handleAddClick,
   formData,
+handleRemoveAmenity
 }) => {
   const [open, setOpen] = useState(0);
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
+
+   
 
   switch (currentStep) {
     case 0:
@@ -60,38 +62,64 @@ const StepperContent = ({
                   )}
               </div>
 
-              <div>
-                <FormField
-                  label="Leasing info"
-                  isRequired={true}
-                  field="leasingInfo"
-                  onAddClick={handleAddClick}
-                />
+         {/* Leasing Info */}
+  <div>
+    <FormField
+      label="Leasing info"
+      isRequired={true}
+      field="leasingInfo"
+      onAddClick={handleAddClick}
+    />
+    {formData?.leasingInfo && Object.keys(formData.leasingInfo).length > 0 && (
+      <div className="border-gray-200 border-t-0 border-l border-b border-r p-3 font-bold">
+        {formData?.leasingInfo.leasingManagerName}
+      </div>
+    )}
+  </div>
 
-                {formData?.leasingInfo && (
-                  <>{formData?.leasingInfo.leasingManagerName}</>
-                )}
-              </div>
+  {/* Charges */}
+  <div>
+    <FormField
+      label="Charges"
+      isRequired={true}
+      field="charges"
+      onAddClick={handleAddClick}
+    />
+    {formData?.charges &&  Object.keys(formData.charges).length > 0 && (
+      <div className="border-gray-200 border-t-0 border-l border-b border-r p-3 font-bold">
+        {formData?.charges?.applicationType}
+      </div>
+    )}
+  </div>
 
-              <FormField
-                label="Charges"
-                isRequired={true}
-                field="charges"
-                onAddClick={handleAddClick}
-              />
+  {/* Rent Frequency */}
+  <div>
+    <FormField
+      label="Rent frequency & payment reminder"
+      isRequired={true}
+      field="rentFrequencyPayment"
+      onAddClick={handleAddClick}
+    />
+    {formData?.rentFrequencyPayment && Object.keys(formData.rentFrequencyPayment).length > 0 && (
+      <div className="border-gray-200 border-t-0 border-l border-b border-r p-3 font-bold">
+        {formData?.rentFrequencyPayment?.paymentFrequency}
+      </div>
+    )}
+  </div>
 
-               <FormField
-                label="Rent frequency & payment reminder"
-                isRequired={true}
-                field="rentFrequencyPayment"
-                onAddClick={handleAddClick}
-              />
-
-              <FormField
-                label="Pet fees(Optional, add fees if you allow pet)"
-                field="petFees"
-                onAddClick={handleAddClick}
-              />
+  {/* Pet Fees */}
+  <div>
+    <FormField
+      label="Pet fees (Optional, add fees if you allow pet)"
+      field="petFees"
+      onAddClick={handleAddClick}
+    />
+    {formData?.petFees && Object.keys(formData.petFees).length > 0 && (
+      <div className="border-gray-200 border-t-0 border-l border-b border-r p-3 font-bold">
+        {formData?.petFees?.petType}
+      </div>
+    )}
+  </div>
               
               <FormField
                 label="Parking"
@@ -148,12 +176,43 @@ const StepperContent = ({
                 onAddClick={handleAddClick}
               />
 
-              <FormField
+<div>
+                <FormField
                 label="Community's amenity/features"
                 isRecommended={true}
                 field="communityAmenities"
                 onAddClick={handleAddClick}
               />
+               {formData?.communityAmenities &&
+                  Object.keys(formData.communityAmenities.amenities).length > 0 && (
+                    <div className=" border-gray-200 border-t-0 border-l border-b border-r p-3 font-bold">
+                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {formData.communityAmenities.amenities.map((amenity ,index) => (
+              <div 
+                            key={amenity.id || index}
+                            className="flex items-center justify-between gap-2 p-2 bg-gray-50 border border-gray-200 rounded-lg"
+                          >
+                            <div className="flex items-center gap-2 flex-1 min-w-0">
+                              <span className="text-sm">{amenity.icon}</span>
+                              <span className="text-sm text-gray-700 truncate">{amenity.name}</span>
+                            </div>
+                            <button
+                              onClick={() => handleRemoveAmenity(amenity.id || index)}
+                              className="text-red-500 hover:text-red-700 p-1 rounded-full hover:bg-red-50 transition-colors flex-shrink-0"
+                              title="Remove amenity"
+                            >
+                              <X className="w-3 h-3" />
+                            </button>
+                          </div>
+                
+          
+
+            ))}
+          </div>
+        </div>
+                   
+                  )}
+</div>
             </div>
           </div>
 

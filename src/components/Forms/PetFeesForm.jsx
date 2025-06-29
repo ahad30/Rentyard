@@ -15,10 +15,10 @@ const PetFeesForm = ({ data, onChange}) => {
             value={data.petType || ''}
             onChange={(val) => onChange('petType', val)}
             options={[
-              { value: "cats", label: "Cats only" },
-              { value: "dogs", label: "Dogs only" },
-              { value: "both", label: "Both cats and dogs" },
-              { value: "none", label: "No pets" }
+              { value: "Cats only", label: "Cats only" },
+              { value: "Dogs only", label: "Dogs only" },
+              { value: "Both cats and dogs", label: "Both cats and dogs" },
+              { value: "No pets", label: "No pets" }
             ]}
             required
           />

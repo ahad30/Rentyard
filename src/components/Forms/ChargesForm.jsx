@@ -24,8 +24,8 @@ const ChargesForm = ({data, onChange}) => {
       value={data.applicationType || ''}
       onChange={(val) => onChange('applicationType', val)}
       options={[
-        { label: "All 18+ applicant", value: "allApplicants" },
-        { label: "Primary Only", value: "primaryApplicants" },
+        { label: "All 18+ applicant", value: "All 18+ applicant" },
+        { label: "Primary Only", value: "Primary Only" },
       ]}
       placeholder="Select type"
       className={"border-none mb-2"}

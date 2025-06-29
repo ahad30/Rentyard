@@ -1,3 +1,4 @@
+import AmenitiesForm from "../Forms/AminitiesForm";
 import ChargesForm from "../Forms/ChargesForm";
 import LeasingInfoForm from "../Forms/LeasingInfoForm";
 import PetFeesForm from "../Forms/PetFeesForm";
@@ -10,5 +11,6 @@ propertyAddress: PropertyAddressForm,
 petFees: PetFeesForm,
 leasingInfo: LeasingInfoForm,
 charges: ChargesForm,
-rentFrequencyPayment: RentForm
+rentFrequencyPayment: RentForm,
+communityAmenities: AmenitiesForm
 };

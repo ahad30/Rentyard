@@ -26,10 +26,10 @@ const RentForm = ({ data, onChange }) => {
           value={data.paymentFrequency || ''}
           onChange={(val) => onChange('paymentFrequency', val)}
           options={[
-            { label: "Weekly", value: "weekly" },
-            { label: "Monthly", value: "monthly" },
-            { label: "Quarterly", value: "quarterly" },
-            { label: "Annually", value: "annually" },
+            { label: "Weekly", value: "Weekly" },
+            { label: "Monthly", value: "Monthly" },
+            { label: "Quarterly", value: "Quarterly" },
+            { label: "Annually", value: "Annually" },
           ]}
         />
       </div>

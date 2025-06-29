@@ -95,6 +95,24 @@ const Property = () => {
     }
   };
 
+   const handleRemoveAmenity = (amenityId) => {
+    setFormData((prev) => {
+      const currentAmenities = prev.communityAmenities?.amenities || [];
+      const updatedAmenities = currentAmenities.filter(amenity => amenity.id !== amenityId);
+      
+      return {
+        ...prev,
+        communityAmenities: {
+          ...prev.communityAmenities,
+          amenities: updatedAmenities,
+        },
+      };
+    });
+    
+    // Show success message
+    toast.success("Amenity removed successfully");
+  };
+
   const renderModalContent = () => {
     const Component = AllModals[modalState.currentField];
     if (!Component) return null;
@@ -110,7 +128,7 @@ const Property = () => {
   
   return (
     <div className="max-w-7xl mx-auto bg-white p-8">
-       <StepperContent currentStep={currentStep} getTitle={getTitle} handleAddClick={handleAddClick} formData={formData}/>
+       <StepperContent currentStep={currentStep} getTitle={getTitle} handleAddClick={handleAddClick} formData={formData} handleRemoveAmenity={handleRemoveAmenity}/>
 
       <Stepper currentStep={currentStep} steps={steps} />
 
