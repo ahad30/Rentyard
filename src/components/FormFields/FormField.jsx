@@ -3,14 +3,14 @@ import React from 'react'
 
 const FormField = ({ label, isRequired, isOptional, isRecommended, field, onAddClick }) => {
   const getStatusText = () => {
-    if (isRequired) return <span className="text-red-500">*</span>;
-    if (isRecommended) return <span className="text-blue-500">(recommended)</span>;
+    if (isRequired) return <span className="text-red-500">(Required)</span>;
+    if (isRecommended) return <span className="text-gray-400">(recommended)</span>;
     if (isOptional) return <span className="text-gray-400">(optional)</span>;
     return null;
   };
 
   return (
-    <div className="border border-gray-200 rounded-lg p-4 hover:border-gray-300 transition-colors">
+    <div className="border  border-gray-200 rounded-t-lg p-4 hover:border-gray-300 transition-colors">
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-sm font-medium text-gray-900">

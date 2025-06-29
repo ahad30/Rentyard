@@ -2,7 +2,7 @@ import { UploadIcon } from "lucide-react";
 import Select from "react-select";
 import { CountryDropdown, RegionDropdown } from "react-country-region-selector";
 import { PhoneInput } from 'react-international-phone';
-import 'react-international-phone/style.css';
+
 
 const customRender = (props) => {
   const {

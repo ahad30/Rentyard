@@ -1,6 +1,6 @@
 import { Upload } from "lucide-react";
 
-const PhotoUpload = ({ isMain = false, className }) => (
+const PhotoUpload = ({ isMain = false, className , isVideo=false}) => (
   <div className={`
     border-2 border-dashed border-[#316EED] rounded-lg 
     flex items-center justify-center 
@@ -14,9 +14,11 @@ const PhotoUpload = ({ isMain = false, className }) => (
     </div>
     <p className="text-lg font-semibold mt-3">
         {isMain ? 'Upload cover photo' : ''}
+        {isVideo ? 'Upload Video' : ''}
       </p>
     <p className="text-sm font-semibold text-[#6F6C6A] mt-1 text-center">
         {isMain ? '(Jpg, png only)' : ''}
+        {isVideo ? '((MP4, MOV only))' : ''}
       </p>
 
    </div>
