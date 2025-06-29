@@ -115,7 +115,7 @@ const Property = () => {
       <Stepper currentStep={currentStep} steps={steps} />
 
       {/* Navigation buttons */}
-      <div className="flex items-center justify-between  pt-8">
+      <div className="flex items-center justify-between mt-10  pt-8">
         <button
           onClick={handleBack}
           disabled={currentStep === 0}

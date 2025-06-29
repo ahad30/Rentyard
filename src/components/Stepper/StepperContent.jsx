@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import FormField from "../FormFields/FormField";
 import PhotoUpload from "../PhotoUpload";
 // import { Accordion, AccordionTab } from 'primereact/accordion';
@@ -27,7 +27,7 @@ const StepperContent = ({
   handleAddClick,
   formData,
 }) => {
-  const [open, setOpen] = React.useState(0);
+  const [open, setOpen] = useState(0);
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
@@ -204,16 +204,15 @@ const StepperContent = ({
 
           <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
             <AccordionHeader onClick={() => handleOpen(1)}>
-              {" "}
               <div className="flex items-center w-full p-4 ">
                 <span className="text-sm font-medium text-gray-700">
-                  Videos{" "}
+                  Videos
                   <span className="text-gray-400 font-normal">(optional)</span>
                 </span>
               </div>
             </AccordionHeader>
             <AccordionBody>
-              <div className="p-4  flex flex-col md:flex-row items-start gap-5">
+              <div className="p-4  flex flex-col md:flex-row items-start gap-5 overflow-hidden">
                 <div className=" space-y-2 min-w-[200px]">
                   <h3 className="text-sm font-medium text-gray-700">
                     Property Video (optional)

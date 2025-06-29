@@ -25,10 +25,3 @@
   display: none !important;
 }
 
-
-/* Your CSS */
-.p-accordion-header .p-accordion-header-link {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
