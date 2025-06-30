@@ -7,7 +7,7 @@ import {
   AccordionHeader,
   AccordionBody,
 } from "@material-tailwind/react";
-import SubscriptionPlans from "../../Pages/Home/SubscriptionPlans";
+import SubscriptionPlans from "../SubscriptionPlans";
 
 function Icon({ id, open }) {
   return (
